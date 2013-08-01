@@ -1,0 +1,53 @@
+
+
+/* Custom page header */
+.masthead {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+  padding-bottom: 19px;
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
+.main {
+    margin-top: 20px;
+}
+
+.container.main article {
+    box-shadow: 0px 2px 4px rgba(0,0,0,.2);
+    padding: 10px;
+    text-align: justify;
+    width: 350px;
+    margin-bottom:20px;
+}
+
+.container.main article h3 {
+    text-align: left;
+    line-height: 25px;
+}
+
+article .img-wrapper {
+    display: block;
+    margin: -10px -10px 0 -10px;
+}
+
+.container.main article footer {
+    border-top: 1px solid #ccc;
+    color: #ccc;
+    font-style: italic;
+    font-size: 12px;
+    padding: 3px 0;
+}
+
+

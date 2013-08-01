@@ -1,0 +1,13 @@
+{
+    "name": "stewartml/lightblog",
+    "require": {
+        "php": ">=5.3.0",
+        "slim/slim": "2.*",
+        "slim/extras": "2.*",
+        "twig/twig": "1.*",
+        "michelf/php-markdown": "1.*"
+    },
+    "autoload": {
+        "psr-0": {"LightBlog": "core/"}
+    }
+}

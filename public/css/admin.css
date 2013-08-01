@@ -1,0 +1,32 @@
+
+body {
+    padding-top: 80px;
+}
+
+.edit-post {
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.edit-post input[type='text'], .edit-post textarea {
+    border: none;
+    box-shadow: none;
+    width: 100%;
+    margin-bottom: 0;
+    resize: none;
+    background: none;
+}
+
+.edit-post input[type='text'] {
+    font-weight: bold;
+    font-size: 35px;
+    height: 40px;
+    line-height: normal;
+}
+
+.edit-post textarea {
+    margin-bottom: 10px;
+    font-family: monospace;
+    font-size: 13px;
+}

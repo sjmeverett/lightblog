@@ -1,0 +1,7 @@
+<h1>Articles</h1>
+
+<p><a class="btn" href="#/editarticle">Create...</a></p>
+
+<ul>
+	<li ng-repeat="article in articles"><a href="#/editarticle/{{article._id.$id}}">{{article.title}}</a></li>
+</ul>

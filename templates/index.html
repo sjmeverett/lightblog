@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}Home page{% endblock %}
+
+{% block content %}
+    {% for article in articles %}
+    <article class="thumbnail">
+        {% if article.img != false %}
+        <a href="posts/{{ article.url }}" class="img-wrapper">
+        <img src="{{ article.img }}" alt="{{ article.title }}">
+        </a>
+        {% endif %}
+        
+        <a href="posts/{{ article.url }}"><h3>{{ article.title }}</h3></a>
+        
+        {{ article.content|raw }}
+        
+        <footer class="meta">
+            <time pubdate datetime="{{ article.pubdate }}">{{ article.published }}</time>
+        </footer>
+    </article>
+    {% endfor %}
+
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="js/masonry.pkgd.min.js"></script>
+        
+    <script>
+        $(document).ready(function () {
+            $('.container.main').masonry({
+                columnWidth: 390,
+                transitionDuration: 0,
+                itemSelector: 'article'
+            });
+        });
+    </script>
+{% endblock %}

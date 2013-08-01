@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>{% block title %}{% endblock %}</title>
+        
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="css/site.css" rel="stylesheet">
+        {% block head %}{% endblock %}
+    </head>
+    
+    <body>               
+        <div class="container">
+            <div class="masthead">
+                <ul class="nav nav-pills pull-right">
+                  <li class="active"><a href="#">Home</a></li>
+                  <li><a href="#">About</a></li>
+                  <li><a href="#">Contact</a></li>
+                </ul>
+                <h3 class="muted">Stewart MacKenzie-Leigh's blog</h3>
+            </div>
+        </div>
+        
+        <div class="container main">
+            {% block content %}{% endblock %}
+        </div>
+        
+        <div class="container">             
+            <div class="footer">
+                <p>&copy; Stewart MacKenzie-Leigh 2013</p>
+            </div>
+        </div>
+        
+        <!--scripts-->
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    </body>
+</html>
