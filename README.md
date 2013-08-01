@@ -15,9 +15,9 @@ Get composer, if you don't have it already:
 
     curl -sS https://getcomposer.org/installer | php
     
-Make a new project:
+Make a new project (this doesn't actually work yet...):
 
-    php composer.phar create-project stewartml/lightblog [my project name] --repository-url http://github.com/stewartml/lightblog
+    php composer.phar create-project stewartml/lightblog [my project name]
 
 Hack away.
  
