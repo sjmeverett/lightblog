@@ -7,6 +7,7 @@ A lightweight blogging engine (very much a work in progress) written using loads
  - [AngularJS](http://angularjs.org/)
  - [PHP Markdown](http://michelf.ca/projects/php-markdown/)
  - [MongoDB](http://www.mongodb.org/)
+ - [Masonry](http://masonry.desandro.com/)
 
 ## Getting it via composer
 
