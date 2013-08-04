@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block content %}
+    <article>
+        <h1>{{ article.title }}</h1>
+        
+        {{ article.content|raw }}
+        
+        <footer class="meta">
+            <time pubdate datetime="{{ article.pubdate }}">{{ article.published }}</time>
+        </footer>
+    </article>
+{% endblock %}

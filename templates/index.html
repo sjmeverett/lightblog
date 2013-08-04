@@ -6,12 +6,12 @@
     {% for article in articles %}
     <article class="thumbnail">
         {% if article.img != false %}
-        <a href="posts/{{ article.url }}" class="img-wrapper">
+        <a href="article/{{ article.url }}" class="img-wrapper">
         <img src="{{ article.img }}" alt="{{ article.title }}">
         </a>
         {% endif %}
         
-        <a href="posts/{{ article.url }}"><h3>{{ article.title }}</h3></a>
+        <a href="article/{{ article.url }}"><h3>{{ article.title }}</h3></a>
         
         {{ article.content|raw }}
         

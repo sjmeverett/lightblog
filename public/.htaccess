@@ -1,7 +1,7 @@
 RewriteEngine On
 
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^home index.php [QSA,L]
+RewriteRule ^article index.php [QSA,L]
 RewriteRule ^login login.php [QSA,L]
 RewriteRule ^articles articles.php [QSA,L]
 RewriteRule ^admin admin.php [QSA,L]

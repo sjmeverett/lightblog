@@ -54,4 +54,23 @@ $app->get('/', function () use ($db, $app)
     $app->render('index.html', array('articles' => $articles));
 });
 
+
+$app->get('/article/:url', function ($url) use ($db, $app)
+{
+    $article = $db->articles->findOne(array('url' => $url));
+    
+    if (empty($article))
+    {
+        $app->response()->status(404);
+    }
+    else
+    {
+        $parser = new \Michelf\Markdown();
+        $parser->header_offset = 1;
+        $article['content'] = $parser->transform($article['content']);
+        $article['content'] = str_replace('~~~~', '', $article['content']);
+        $app->render('article.html', array('article' => $article));
+    }
+});
+
 $app->run();
