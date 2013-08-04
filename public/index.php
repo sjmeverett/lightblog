@@ -26,7 +26,7 @@ $app->get('/', function () use ($db, $app)
             }
             
             //get a snippet of the post content
-            $pos = strpos($content, '~~~~');
+            $pos = strpos($content, '--more--');
             
             if ($pos !== false)
             {
@@ -43,8 +43,9 @@ $app->get('/', function () use ($db, $app)
             }
             
             //transform content to html
-            $article['content'] = \Michelf\Markdown::defaultTransform($article['content']);
-            
+            $article['content'] = \Michelf\MarkdownExtra::defaultTransform($article['content']);
+            $article['pubdate'] = date('Y-m-d H:i', $article['date']->sec); 
+            $article['published'] = time_ago($article['date']->sec);
             return $article;
         },
         
@@ -65,10 +66,17 @@ $app->get('/article/:url', function ($url) use ($db, $app)
     }
     else
     {
-        $parser = new \Michelf\Markdown();
-        $parser->header_offset = 1;
-        $article['content'] = $parser->transform($article['content']);
-        $article['content'] = str_replace('~~~~', '', $article['content']);
+        $article['content'] = \Michelf\MarkdownExtra::defaultTransform($article['content']);
+        $article['content'] = str_replace('--more--', '', $article['content']);
+        
+        //michelf is not up for adding header offset to the parser, but suggested this hack instead
+        $article['content'] = preg_replace(
+            "!(</?h)([1-6])(>|\\s)!ie",
+            "'\\1'.(\\2+1 >= 6 ? 6 : \\2+1).'\\3'",
+            $article['content']);
+        
+        $article['pubdate'] = date('Y-m-d H:i', $article['date']->sec); 
+        $article['published'] = time_ago($article['date']->sec);
         $app->render('article.html', array('article' => $article));
     }
 });

@@ -2,6 +2,14 @@
 
 <p><a class="btn" href="#/editarticle">Create...</a></p>
 
-<ul>
-	<li ng-repeat="article in articles"><a href="#/editarticle/{{article._id.$id}}">{{article.title}}</a></li>
-</ul>
+<table class="article-list">
+    <thead>
+        <th>Title</th>
+        <th>Date</th>
+    </thead>
+	<tr ng-repeat="article in articles">
+	    <td class="article-title" ng-click="showbar($event)"><a href="#/editarticle/{{article._id.$id}}">{{article.title}}</a></td>
+	    <td class="date">{{article.date}}</td>
+	</tr>
+</table>
+

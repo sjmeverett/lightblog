@@ -1,15 +1,19 @@
 {% extends "layout.html" %}
 
+{% block head %}
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+{% endblock %}
+
 {% block title %}{{ article.title }}{% endblock %}
 
 {% block content %}
-    <article>
+    <article class="article-page">
         <h1>{{ article.title }}</h1>
         
         {{ article.content|raw }}
         
         <footer class="meta">
-            <time pubdate datetime="{{ article.pubdate }}">{{ article.published }}</time>
+            published <time pubdate datetime="{{ article.pubdate }}">{{ article.published }}</time>
         </footer>
     </article>
 {% endblock %}

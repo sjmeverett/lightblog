@@ -3,13 +3,49 @@ body {
     padding-top: 80px;
 }
 
-.edit-post {
-    width: 700px;
-    margin-left: auto;
-    margin-right: auto;
+.container {
+    width: 740px;
 }
 
-.edit-post input[type='text'], .edit-post textarea {
+.article-list {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: separate;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #eee;
+    border-radius: 3px;
+}
+
+.article-list th {
+    text-align: left;
+    padding: 7px 10px;
+    background-image: linear-gradient(bottom, rgb(238,238,238) 17%, rgb(255,255,255) 91%);
+    background-image: -webkit-linear-gradient(bottom, rgb(238,238,238) 17%, rgb(255,255,255) 91%);
+    overflow: hidden;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    text-shadow: 1px 1px white;
+    font-weight: bold;
+    color: #555;
+}
+
+.article-list td {
+    padding: 7px 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.article-list td.date {
+    width: 150px;
+}
+
+.article-list .action-bar {
+    display: none;
+}
+
+
+
+.edit-article input[type='text'], .edit-article textarea {
     border: none;
     box-shadow: none;
     width: 100%;
@@ -18,15 +54,27 @@ body {
     background: none;
 }
 
-.edit-post input[type='text'] {
+.edit-article input[type='text'] {
     font-weight: bold;
     font-size: 35px;
     height: 40px;
     line-height: normal;
+    text-overflow: ellipsis;
 }
 
-.edit-post textarea {
+.edit-article textarea {
     margin-bottom: 10px;
     font-family: monospace;
     font-size: 13px;
+    height: 100px;
 }
+
+.edit-article-toolbar {
+    float: left;
+    margin: 5px 10px;
+}
+
+.edit-article .btn {
+    float: left;
+}
+

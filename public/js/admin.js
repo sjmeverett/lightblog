@@ -33,16 +33,18 @@ function EditArticleController($scope, $http, $routeParams, $location) {
     if ($routeParams.id == undefined) {
         $scope.save = function () {
             $http
-                .post('/articles', {title: $scope.title, content: $scope.content})
+                .post('/articles', {title: $scope.article.title, content: $scope.article.content})
                 .success(function (data, status, error, config) {
                     $location.path('/');
                 });
-        };   
+        };
+        
+        $('.edit-article-toolbar').hide();
     }
     else {
         $scope.save = function () {
             $http
-                .post('/articles/' + $scope.id, {title: $scope.title, content: $scope.content})
+                .post('/articles/' + $scope.id, {title: $scope.article.title, content: $scope.article.content})
                 .success(function (data, status, error, config) {
                     $location.path('/');
                 });
@@ -52,8 +54,7 @@ function EditArticleController($scope, $http, $routeParams, $location) {
             .get('/articles/' + $routeParams.id)
             .success(function (data, status, error, config) {
                 $scope.id = $routeParams.id;
-                $scope.title = data.title;
-                $scope.content = data.content;
+                $scope.article = data;
 
                 $('textarea.autosize').focus(function () {
                     $(this).trigger('autosize.resize');
@@ -61,3 +62,4 @@ function EditArticleController($scope, $http, $routeParams, $location) {
             });
     }
 }
+
