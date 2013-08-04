@@ -8,6 +8,7 @@ A lightweight blogging engine (very much a work in progress) written using loads
  - [PHP Markdown](http://michelf.ca/projects/php-markdown/)
  - [MongoDB](http://www.mongodb.org/)
  - [Masonry](http://masonry.desandro.com/)
+ - [Google Code Prettify](http://code.google.com/p/google-code-prettify/)
 
 ## Getting it via composer
 
