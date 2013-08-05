@@ -43,6 +43,11 @@ article.thumbnail .img-wrapper {
     margin: -10px -10px 0 -10px;
 }
 
+article.thumbnail .img-wrapper img {
+    display: block;
+    margin: 0 auto;
+}
+
 article footer {
     border-top: 1px solid #ccc;
     color: #ccc;
@@ -69,16 +74,18 @@ article.article-page img {
     padding: 10px;
     border: 1px solid #eee;
     border-radius: 3px;
+    margin: 0.7em auto;
+    display: block;
 }
 
 article.article-page img.float-left {
     float: left;
-    margin-right: 20px;
+    margin: 0.7em 0.7em 0.7em 0;
 }
 
 article.article-page img.float-right {
     float: right;
-    margin-left: 20px;
+    margin: 0.7em 0 0.7em 0.7em;
 }
 
 article.article-page img.half-width {
