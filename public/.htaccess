@@ -12,3 +12,6 @@ RewriteRule ^articles articles.php [QSA,L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^admin admin.php [QSA,L]
 
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^upload$ upload.php [QSA,L]
+

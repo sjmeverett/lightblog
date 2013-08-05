@@ -49,6 +49,7 @@ article footer {
     font-style: italic;
     font-size: 12px;
     padding: 3px 0;
+    clear: both;
 }
 
 article.article-page {
@@ -63,6 +64,31 @@ article.article-page p {
 article.article-page h2 {
     margin-top: 1em;
 }
+
+article.article-page img {
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 3px;
+}
+
+article.article-page img.float-left {
+    float: left;
+    margin-right: 20px;
+}
+
+article.article-page img.float-right {
+    float: right;
+    margin-left: 20px;
+}
+
+article.article-page img.half-width {
+    width: 50%;
+}
+
+article.article-page img.full-width {
+    width: 100%;
+}
+
 
 li.L0, li.L1, li.L2, li.L3, li.L4, li.L5, li.L6, li.L7, li.L8, li.L9
 {

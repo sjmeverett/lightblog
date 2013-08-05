@@ -9,6 +9,8 @@ A lightweight blogging engine (very much a work in progress) written using loads
  - [MongoDB](http://www.mongodb.org/)
  - [Masonry](http://masonry.desandro.com/)
  - [Google Code Prettify](http://code.google.com/p/google-code-prettify/)
+ - [Dropzone.js](http://www.dropzonejs.com/)
+ - [Rangy inputs](http://code.google.com/p/rangyinputs/)
 
 ## Getting it via composer
 

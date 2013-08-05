@@ -28,7 +28,36 @@ function ArticlesController($scope, $http) {
 
 
 function EditArticleController($scope, $http, $routeParams, $location) {
-    $('textarea.autosize').autosize();
+    var textarea = $('textarea');
+    
+    textarea
+        .autosize()
+        .blur(function () {
+            textarea.data('selection', textarea.getSelection());
+        });
+    
+    var dropzone = new Dropzone('#uploadDropzone', {url: '/upload'});
+    
+    dropzone.on('success', function (file, response) {
+        var html = '[](' + response + ')';
+        
+        if (file.type.match(/image.*/))
+            html = '!' + html;
+        
+        //http://stackoverflow.com/a/5890708
+        var selection = textarea.data('selection');
+        textarea.focus();
+        
+        if (selection == undefined)
+        {
+            textarea.val(textarea.val() + html);
+        }
+        else
+        {
+            textarea.setSelection(selection.start, selection.end);
+            textarea.replaceSelectedText(html);
+        }
+    });
     
     if ($routeParams.id == undefined) {
         $scope.save = function () {
