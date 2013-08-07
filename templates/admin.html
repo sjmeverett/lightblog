@@ -4,11 +4,12 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
-        <title>Blog admin</title>
+        <title>{% block title %}{% endblock %}</title>
         
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
         <link href="css/admin.css" rel="stylesheet">
         <link href="css/basic.css" rel="stylesheet">
+		{% block head %}{% endblock %}
     </head>
     
     <body>
@@ -34,9 +35,7 @@
 
         <div class="container">
             <div class="starter-template">
-                <main ng-view>
-            
-                </main>
+                {% block content %}{% endblock %}
             </div>
         </div>
         
@@ -47,8 +46,6 @@
         <script src="/js/dropzone.js"></script>
         <script src="/js/jquery.autosize.js"></script>
         <script src="/js/jquery.rangyinputs.js"></script>
-        <script src="/js/admin.js"></script>
         <script src="/js/ui-bootstrap-tpls-0.2.0.min.js"></script>
-        <script src="/js/login.js"></script>
     </body>
 </html>
