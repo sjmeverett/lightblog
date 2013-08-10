@@ -4,33 +4,28 @@
 
 {% block content %}
     {% for article in articles %}
-    <article class="thumbnail">
+    <article class="list">
         {% if article.img != false %}
-        <a href="article/{{ article.url }}" class="img-wrapper">
-        <img src="{{ article.img }}" alt="{{ article.title }}">
+        <a href="/article/{{ article.url }}" class="img-wrapper">
+            <img src="{{ article.img }}" alt="{{ article.title }}">
         </a>
         {% endif %}
         
-        <a href="article/{{ article.url }}"><h3>{{ article.title }}</h3></a>
-        
         {{ article.content|raw }}
         
+        <p><a href="/article/{{ article.url }}" class="read-more">read more...</a></p>
         <footer class="meta">
             <time pubdate datetime="{{ article.pubdate }}">{{ article.published }}</time>
         </footer>
     </article>
     {% endfor %}
-
-    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="js/masonry.pkgd.min.js"></script>
-        
+    
     <script>
-        $(document).ready(function () {
-            $('.container.main').masonry({
-                columnWidth: 390,
-                transitionDuration: 0,
-                itemSelector: 'article'
-            });
-        });
+    $(document).ready(function () {
+        $('article.list').click(function () {
+            window.location = $('a.read-more', $(this)).attr('href');
+        })
+        .attr('style', 'cursor: pointer;');
+    });
     </script>
 {% endblock %}

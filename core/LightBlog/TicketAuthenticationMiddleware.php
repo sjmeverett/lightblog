@@ -4,6 +4,13 @@ namespace LightBlog;
 
 class TicketAuthenticationMiddleware extends \Slim\Middleware
 {
+    private $db;
+    
+    public function __construct($db)
+    {
+        $this->db = $db;
+    }
+    
     public function call()
     {
         $cookie = $this->app->getCookie('ticket');
@@ -11,14 +18,14 @@ class TicketAuthenticationMiddleware extends \Slim\Middleware
         if ($cookie != null)
 	    {
 		    //fetch the ticket from the db
-		    $ticket = $db->tickets->findOne(array(
+		    $ticket = $this->db->tickets->findOne(array(
 			    '_id' => $_COOKIE['ticket']
 		    ));
 
 		    //delete if expired
 		    if ($ticket['expires'] < time())
 		    {
-			    $db->tickets->remove(array(
+			    $this->db->tickets->remove(array(
 				    '_id' => $_COOKIE['ticket']
 			    ));
 		    }
@@ -28,7 +35,7 @@ class TicketAuthenticationMiddleware extends \Slim\Middleware
 			    if ($ticket['expires'] - 10 * 60 < time())
 			    {
 				    $ticket['expires'] = time() + 20 * 60;
-				    $db->tickets->save($ticket);
+				    $this->db->tickets->save($ticket);
 			    }
 
 			    //current login active
@@ -37,7 +44,6 @@ class TicketAuthenticationMiddleware extends \Slim\Middleware
 		    }
 	    }
 
-	    http_response_code(401);
-       	die();
+	    $this->app->redirect('/login?url=' . $_SERVER['REQUEST_URI']);
     }
 }

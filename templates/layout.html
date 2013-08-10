@@ -6,22 +6,26 @@
         
         <title>{% block title %}{% endblock %}</title>
         
-        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
-        <link href="/css/site.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Armata|Loved+by+the+King" rel="stylesheet" type="text/css">
+        <link href="/css/site.css" rel="stylesheet" type="text/css">
+        <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
         {% block head %}{% endblock %}
     </head>
     
     <body>               
-        <div class="container">
-            <div class="masthead">
-                <ul class="nav nav-pills pull-right">
-                  <li class="active"><a href="#">Home</a></li>
-                  <li><a href="#">About</a></li>
-                  <li><a href="#">Contact</a></li>
+        <header>
+            <div class="container">
+                <a href="/"><img src="/img/mugshot.png"></a>
+                <a href="/"><h1>stewartml.co.uk</h1></a>
+                <p>researcher, geek, procrastinator</p>
+                
+                <ul>
+                    <li><a href="/">home</a></li>
+                    <li><a href="/article/about-me">about me</a></li>
                 </ul>
-                <h3 class="muted">Stewart MacKenzie-Leigh's blog</h3>
             </div>
-        </div>
+        </header>
         
         <div class="container main">
             {% block content %}{% endblock %}
@@ -32,8 +36,5 @@
                 <p>&copy; Stewart MacKenzie-Leigh 2013</p>
             </div>
         </div>
-        
-        <!--scripts-->
-        <!--<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>-->
     </body>
 </html>

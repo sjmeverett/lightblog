@@ -1,0 +1,61 @@
+{% extends "admin.html" %}
+
+{% block content %}
+<form action="/admin/editarticle/{{ article.id }}" method="post">
+    <div class="edit-article">
+        <textarea name="content" placeholder="Content..." class="autosize">{{ article.content }}</textarea>
+    </div>
+
+    <div class="edit-article-sidebar">
+        <div class="toolbar">
+            <div class="popup">
+                <div class="edit-article-toolbar">
+                    <a href="/article/{{ article.url }}" class="btn">View</a><br>
+                    <a href="#/deletearticle/{{ article.id }}" class="btn">Delete</a>
+                </div>
+                
+                <input name="import" type="submit" class="btn" value="Import HTML"><br>
+                <input name="save" type="submit" class="btn btn-primary" value="Save">
+            </div>
+            <div class="popup dropzone-previews" id="uploadDropzone">
+                <p class="instructions">Drop files here or click to upload.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+$(document).ready(function () {
+    var textarea = $('textarea');
+    
+    textarea
+        .autosize()
+        .blur(function () {
+            textarea.data('selection', textarea.getSelection());
+        });
+        
+    var dropzone = new Dropzone('#uploadDropzone', {url: '/upload'});
+    
+    dropzone.on('success', function (file, response) {
+        var html = '[](' + response + ')';
+        
+        if (file.type.match(/image.*/))
+            html = '!' + html;
+        
+        //http://stackoverflow.com/a/5890708
+        var selection = textarea.data('selection');
+        textarea.focus();
+        
+        if (selection == undefined)
+        {
+            textarea.val(textarea.val() + html);
+        }
+        else
+        {
+            textarea.setSelection(selection.start, selection.end);
+            textarea.replaceSelectedText(html);
+        }
+    });
+});
+</script>
+{% endblock %}

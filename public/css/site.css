@@ -1,23 +1,76 @@
 
-
-/* Custom page header */
-.masthead {
-  border-bottom: 1px solid #e5e5e5;
+body {
+    font-family: 'Armata', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    background: #e0def4 url('/img/background.png');
 }
 
-/* Make the masthead heading the same height as the navigation */
-.header h3 {
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 40px;
-  padding-bottom: 19px;
+h1, h2, h3, h4, h5, h6 {
+    color: #1b262d;
 }
 
-/* Custom page footer */
+a, a:visited, a:active {
+    color: #2d94a6;
+}
+
+header {
+    background: #d3ab74 url('/img/header.png');
+    background: #fff;
+    border-bottom: 5px solid #2d94a6;
+    margin-bottom: 30px;
+    overflow: auto;
+}
+
+header img {
+    float: left;
+}
+
+header a:hover {
+    text-decoration: none;
+}
+
+header h1 {
+    font-family: 'Armata', sans-serif;
+    font-size: 50px;
+    color: #2d94a6;
+    margin-top: 30px;
+}
+
+header p {
+    font-family: 'Loved by the King', cursive;
+    font-size: 30px;
+    color: #1b262d;
+}
+
+header ul {
+    float: right;
+    list-style: none;
+    margin: 0;
+}
+
+header li {
+    float: left;
+    margin-right: 5px;
+}
+
+header li a {
+    display: block;
+    background: #2d94a6;
+    color: #fff !important;
+    width: 100px;
+    height: 30px;
+    padding-top: 10px;
+    text-align: center;
+}
+
+header li a:hover {
+    text-decoration: none;
+    background: #288494;
+}
+
+
 .footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
+    padding-top: 19px;
+    color: #777;
 }
 
 
@@ -25,25 +78,41 @@
     margin-top: 20px;
 }
 
-article.thumbnail {
-    box-shadow: 0px 2px 4px rgba(0,0,0,.2);
-    padding: 10px;
+.container {
+    width: 960px;
+}
+
+article {
+    padding: 20px;
+    margin-bottom: 40px;
+    border: 4px solid #eee;
+    box-shadow: 0px 5px 5px #999;
+    background: #fff;
+}
+
+article h1, h2, h3, h4, h5, h6 {
+    margin-top: 30px;
+}
+
+article.list h1 {
+    margin-top: 10px;
+    font-size: 25px;
+    line-height: 30px;
+}
+
+article p {
     text-align: justify;
-    width: 350px;
-    margin-bottom:20px;
 }
 
-article.thumbnail h3 {
-    text-align: left;
-    line-height: 25px;
-}
-
-article.thumbnail .img-wrapper {
+article.list .img-wrapper {
     display: block;
-    margin: -10px -10px 0 -10px;
+    margin: -20px 15px 15px -20px;
+    width: 250px;
+    float: left;
+    box-sizing: border-box;
 }
 
-article.thumbnail .img-wrapper img {
+article.list .img-wrapper img {
     display: block;
     margin: 0 auto;
 }
@@ -54,21 +123,10 @@ article footer {
     font-style: italic;
     font-size: 12px;
     padding: 3px 0;
+    margin-top: 20px;
     clear: both;
 }
 
-article.article-page {
-    width: 740px;
-    margin: 0 auto;
-}
-
-article.article-page p {
-    text-align: justify;
-}
-
-article.article-page h2 {
-    margin-top: 1em;
-}
 
 article.article-page img {
     padding: 10px;
@@ -101,5 +159,20 @@ li.L0, li.L1, li.L2, li.L3, li.L4, li.L5, li.L6, li.L7, li.L8, li.L9
 {
     list-style-type: decimal !important;
     margin-left: 10px;
+}
+
+
+.container.login {
+    background: #fff;
+    margin-top: 100px;
+    padding: 50px;
+    width: 308px;
+    box-sizing: border-box;
+    border: 4px solid #eee;
+    box-shadow: 0px 5px 5px #999;
+}
+
+.container.login input[type='email'], .container.login input[type='password'] {
+    width: 186px;
 }
 

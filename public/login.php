@@ -5,34 +5,38 @@ require "setup.php";
 
 $app->post('/login', function() use ($app, $db)
 {
-	$credentials = $app->environment()['slim.input'];
+    $request = $app->request();
+    $email = $request->post('email');
+	$password = $request->post('password');
 
-	if (property_exists($credentials, 'email') && property_exists($credentials, 'password'))
+	$password = sha1($email . $password);
+
+	$user = $db->users->findOne(array(
+		'email' => $email,
+		'password' => $password
+		));
+		
+	if ($user != null)
 	{
-		$credentials->password = sha1($credentials->email . $credentials->password);
+		$ticket = array(
+			'_id' => uuidSecure(),
+			'user_id' => $user['_id'],
+			'expires' => time() + 20 * 60
+		);
 
-		$user = $db->users->findOne(array(
-			'email' => $credentials->email,
-			'password' => $credentials->password
-			));
+		$db->tickets->insert($ticket);
 
-		if ($user != null)
-		{
-			$ticket = array(
-				'_id' => uuidSecure(),
-				'user_id' => $user['_id'],
-				'expires' => time() + 20 * 60
-			);
-
-			$db->tickets->insert($ticket);
-
-			$app->setCookie('ticket', $ticket['_id']);
-			setResponseObject(array('success' => true));
-			return;
-		}
+		$app->setCookie('ticket', $ticket['_id']);
+		$app->redirect($_GET['url']);
 	}
+	
+	$app->render('login.html');
+});
 
-	setResponseObject(array('success' => false));
+
+$app->get('/login', function() use ($app)
+{
+    $app->render('login.html');
 });
 
 

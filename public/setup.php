@@ -32,24 +32,6 @@ $app->view(new \Slim\Extras\Views\Twig());
 $app->add(new \Slim\Middleware\ContentTypes());
 
 
-//authentication
-
-
-function authenticate()
-{
-    global $app;
-    $app->add(new \LightBlog\TicketAuthenticationMiddleware());
-}
-
-
-function json()
-{
-    global $app;
-    $app->view(new \LightBlog\JsonView());
-}
-
-
-
 //http://stackoverflow.com/questions/1416697/converting-timestamp-to-time-ago-in-php-e-g-1-day-ago-2-days-ago
 
 function time_ago($ptime)

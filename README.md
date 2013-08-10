@@ -4,10 +4,8 @@ A lightweight blogging engine (very much a work in progress) written using loads
 
  - [Slim framework](http://www.slimframework.com/)
  - [Twig](http://twig.sensiolabs.org/)
- - [AngularJS](http://angularjs.org/)
  - [PHP Markdown](http://michelf.ca/projects/php-markdown/)
  - [MongoDB](http://www.mongodb.org/)
- - [Masonry](http://masonry.desandro.com/)
  - [Google Code Prettify](http://code.google.com/p/google-code-prettify/)
  - [Dropzone.js](http://www.dropzonejs.com/)
  - [Rangy inputs](http://code.google.com/p/rangyinputs/)
